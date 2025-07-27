@@ -5,9 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --base=/
-internet-store-blended
-/",
+    "build": "vite build --base=/internet-store-blended/",
     "preview": "vite preview"
   },
   "devDependencies": {
