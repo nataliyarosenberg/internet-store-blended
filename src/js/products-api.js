@@ -10,3 +10,12 @@ export async function fetchCategories() {
   }
 }
 
+
+export async function fetchProducts(currentPage = 1) {
+  try {
+    const res = await axios(`${URL}?limit=12&skip=${(currentPage - 1) * 12}`)
+    return res.data
+  } catch (error) {
+    console.log(error.message);
+  }
+}
