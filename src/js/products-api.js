@@ -10,12 +10,23 @@ export async function fetchCategories() {
   }
 }
 
-
 export async function fetchProducts(currentPage = 1) {
   try {
-    const res = await axios(`${URL}?limit=12&skip=${(currentPage - 1) * 12}`)
-    return res.data
+    const res = await axios(`${URL}?limit=12&skip=${(currentPage - 1) * 12}`);
+    return res.data.products;
   } catch (error) {
     console.log(error.message);
+  }
+}
+
+export async function fetchProductsByCategory(category, currentPage = 1) {
+  try {
+    const resp = await axios(
+      `${URL}/category/${category}?limit=12&skip=${(currentPage - 1) * 12}`
+    );
+    return resp.data.products;
+  } catch (error) {
+    console.error(`Error`, error);
+    return [];
   }
 }
